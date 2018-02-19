@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <Resource id="exportar" type="javax.sql.DataSource">#Mon Feb 19 11:08:20 CST 2018
+jdbcDriver=com.mysql.jdbc.Driver
+password=123456Abc
+userName=julio
+jdbcUrl=jdbc\:mysql\://192.168.1.99\:3306/exportacion?zeroDateTimeBehavior\=convertToNull
+</Resource>
+</resources>
