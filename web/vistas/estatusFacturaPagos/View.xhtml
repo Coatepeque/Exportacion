@@ -12,8 +12,6 @@
       <h:form id="EstatusFacturaPagosViewForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{estatusFacturaPagosController.selected != null}">
-            <h:outputText value="#{bundle.ViewEstatusFacturaPagosLabel_idEstatusFacturaPagos}"/>
-            <h:outputText value="#{estatusFacturaPagosController.selected.idEstatusFacturaPagos}" title="#{bundle.ViewEstatusFacturaPagosTitle_idEstatusFacturaPagos}"/>
             <h:outputText value="#{bundle.ViewEstatusFacturaPagosLabel_noEnvio}"/>
             <h:outputText value="#{estatusFacturaPagosController.selected.noEnvio}" title="#{bundle.ViewEstatusFacturaPagosTitle_noEnvio}"/>
             <h:outputText value="#{bundle.ViewEstatusFacturaPagosLabel_fechaPago}"/>

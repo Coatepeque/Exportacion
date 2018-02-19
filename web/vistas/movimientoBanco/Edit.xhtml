@@ -12,8 +12,6 @@
       <h:form id="MovimientoBancoEditForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{movimientoBancoController.selected != null}">
-            <p:outputLabel value="#{bundle.EditMovimientoBancoLabel_idMovimientoBanco}" for="idMovimientoBanco" />
-            <p:inputText id="idMovimientoBanco" value="#{movimientoBancoController.selected.idMovimientoBanco}" title="#{bundle.EditMovimientoBancoTitle_idMovimientoBanco}" required="true" requiredMessage="#{bundle.EditMovimientoBancoRequiredMessage_idMovimientoBanco}"/>
             <p:outputLabel value="#{bundle.EditMovimientoBancoLabel_fecha}" for="fecha" />
             <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{movimientoBancoController.selected.fecha}" title="#{bundle.EditMovimientoBancoTitle_fecha}" required="true" requiredMessage="#{bundle.EditMovimientoBancoRequiredMessage_fecha}" showOn="button"/>
             <p:outputLabel value="#{bundle.EditMovimientoBancoLabel_noDocumento}" for="noDocumento" />

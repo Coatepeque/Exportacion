@@ -12,8 +12,6 @@
       <h:form id="MovimientoBancoCreateForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{movimientoBancoController.selected != null}">
-            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_idMovimientoBanco}" for="idMovimientoBanco" />
-            <p:inputText id="idMovimientoBanco" value="#{movimientoBancoController.selected.idMovimientoBanco}" title="#{bundle.CreateMovimientoBancoTitle_idMovimientoBanco}" required="true" requiredMessage="#{bundle.CreateMovimientoBancoRequiredMessage_idMovimientoBanco}"/>
             <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_fecha}" for="fecha" />
             <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{movimientoBancoController.selected.fecha}" title="#{bundle.EditMovimientoBancoTitle_fecha}" required="true" requiredMessage="#{bundle.EditMovimientoBancoRequiredMessage_fecha}" showOn="button"/>
             <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_noDocumento}" for="noDocumento" />

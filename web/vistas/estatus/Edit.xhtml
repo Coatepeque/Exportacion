@@ -12,8 +12,6 @@
       <h:form id="EstatusEditForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{estatusController.selected != null}">
-            <p:outputLabel value="#{bundle.EditEstatusLabel_idEstatus}" for="idEstatus" />
-            <p:inputText id="idEstatus" value="#{estatusController.selected.idEstatus}" title="#{bundle.EditEstatusTitle_idEstatus}" required="true" requiredMessage="#{bundle.EditEstatusRequiredMessage_idEstatus}"/>
             <p:outputLabel value="#{bundle.EditEstatusLabel_descripcion}" for="descripcion" />
             <p:inputText id="descripcion" value="#{estatusController.selected.descripcion}" title="#{bundle.EditEstatusTitle_descripcion}" required="true" requiredMessage="#{bundle.EditEstatusRequiredMessage_descripcion}"/>
           </p:panelGrid>

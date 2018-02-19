@@ -12,8 +12,6 @@
       <h:form id="HistorialFacturasCreateForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{historialFacturasController.selected != null}">
-            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_idHistorialFacturas}" for="idHistorialFacturas" />
-            <p:inputText id="idHistorialFacturas" value="#{historialFacturasController.selected.idHistorialFacturas}" title="#{bundle.CreateHistorialFacturasTitle_idHistorialFacturas}" required="true" requiredMessage="#{bundle.CreateHistorialFacturasRequiredMessage_idHistorialFacturas}"/>
             <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_fecha}" for="fecha" />
             <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{historialFacturasController.selected.fecha}" title="#{bundle.EditHistorialFacturasTitle_fecha}" required="true" requiredMessage="#{bundle.EditHistorialFacturasRequiredMessage_fecha}" showOn="button"/>
             <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_observacion}" for="observacion" />

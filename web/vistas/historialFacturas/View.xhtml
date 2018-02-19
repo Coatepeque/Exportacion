@@ -12,8 +12,6 @@
       <h:form id="HistorialFacturasViewForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{historialFacturasController.selected != null}">
-            <h:outputText value="#{bundle.ViewHistorialFacturasLabel_idHistorialFacturas}"/>
-            <h:outputText value="#{historialFacturasController.selected.idHistorialFacturas}" title="#{bundle.ViewHistorialFacturasTitle_idHistorialFacturas}"/>
             <h:outputText value="#{bundle.ViewHistorialFacturasLabel_fecha}"/>
             <h:outputText value="#{historialFacturasController.selected.fecha}" title="#{bundle.ViewHistorialFacturasTitle_fecha}">
               <f:convertDateTime pattern="MM/dd/yyyy" />

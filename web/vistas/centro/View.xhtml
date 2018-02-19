@@ -12,8 +12,6 @@
       <h:form id="CentroViewForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{centroController.selected != null}">
-            <h:outputText value="#{bundle.ViewCentroLabel_idCentro}"/>
-            <h:outputText value="#{centroController.selected.idCentro}" title="#{bundle.ViewCentroTitle_idCentro}"/>
             <h:outputText value="#{bundle.ViewCentroLabel_descripcion}"/>
             <h:outputText value="#{centroController.selected.descripcion}" title="#{bundle.ViewCentroTitle_descripcion}"/>
           </p:panelGrid>

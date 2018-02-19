@@ -12,8 +12,6 @@
       <h:form id="EstatusFacturaPagosCreateForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{estatusFacturaPagosController.selected != null}">
-            <p:outputLabel value="#{bundle.CreateEstatusFacturaPagosLabel_idEstatusFacturaPagos}" for="idEstatusFacturaPagos" />
-            <p:inputText id="idEstatusFacturaPagos" value="#{estatusFacturaPagosController.selected.idEstatusFacturaPagos}" title="#{bundle.CreateEstatusFacturaPagosTitle_idEstatusFacturaPagos}" required="true" requiredMessage="#{bundle.CreateEstatusFacturaPagosRequiredMessage_idEstatusFacturaPagos}"/>
             <p:outputLabel value="#{bundle.CreateEstatusFacturaPagosLabel_noEnvio}" for="noEnvio" />
             <p:inputText id="noEnvio" value="#{estatusFacturaPagosController.selected.noEnvio}" title="#{bundle.CreateEstatusFacturaPagosTitle_noEnvio}" required="true" requiredMessage="#{bundle.CreateEstatusFacturaPagosRequiredMessage_noEnvio}"/>
             <p:outputLabel value="#{bundle.CreateEstatusFacturaPagosLabel_fechaPago}" for="fechaPago" />

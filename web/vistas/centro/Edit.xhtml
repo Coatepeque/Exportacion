@@ -12,8 +12,6 @@
       <h:form id="CentroEditForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{centroController.selected != null}">
-            <p:outputLabel value="#{bundle.EditCentroLabel_idCentro}" for="idCentro" />
-            <p:inputText id="idCentro" value="#{centroController.selected.idCentro}" title="#{bundle.EditCentroTitle_idCentro}" required="true" requiredMessage="#{bundle.EditCentroRequiredMessage_idCentro}"/>
             <p:outputLabel value="#{bundle.EditCentroLabel_descripcion}" for="descripcion" />
             <p:inputText id="descripcion" value="#{centroController.selected.descripcion}" title="#{bundle.EditCentroTitle_descripcion}" required="true" requiredMessage="#{bundle.EditCentroRequiredMessage_descripcion}"/>
           </p:panelGrid>

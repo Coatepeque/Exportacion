@@ -12,8 +12,6 @@
       <h:form id="MovimientoBancoViewForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{movimientoBancoController.selected != null}">
-            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_idMovimientoBanco}"/>
-            <h:outputText value="#{movimientoBancoController.selected.idMovimientoBanco}" title="#{bundle.ViewMovimientoBancoTitle_idMovimientoBanco}"/>
             <h:outputText value="#{bundle.ViewMovimientoBancoLabel_fecha}"/>
             <h:outputText value="#{movimientoBancoController.selected.fecha}" title="#{bundle.ViewMovimientoBancoTitle_fecha}">
               <f:convertDateTime pattern="MM/dd/yyyy" />

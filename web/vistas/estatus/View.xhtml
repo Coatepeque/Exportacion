@@ -12,8 +12,6 @@
       <h:form id="EstatusViewForm">
         <h:panelGroup id="display">
           <p:panelGrid columns="2" rendered="#{estatusController.selected != null}">
-            <h:outputText value="#{bundle.ViewEstatusLabel_idEstatus}"/>
-            <h:outputText value="#{estatusController.selected.idEstatus}" title="#{bundle.ViewEstatusTitle_idEstatus}"/>
             <h:outputText value="#{bundle.ViewEstatusLabel_descripcion}"/>
             <h:outputText value="#{estatusController.selected.descripcion}" title="#{bundle.ViewEstatusTitle_descripcion}"/>
           </p:panelGrid>
