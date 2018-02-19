@@ -20,8 +20,12 @@
             <p:inputText id="noEnvio" value="#{ventaController.selected.noEnvio}" title="#{bundle.EditVentaTitle_noEnvio}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_noEnvio}"/>
             <p:outputLabel value="#{bundle.EditVentaLabel_cantidad}" for="cantidad" />
             <p:inputText id="cantidad" value="#{ventaController.selected.cantidad}" title="#{bundle.EditVentaTitle_cantidad}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_cantidad}"/>
-            <p:outputLabel value="#{bundle.EditVentaLabel_tipoVenta}" for="tipoVenta" />
-            <p:inputText id="tipoVenta" value="#{ventaController.selected.tipoVenta}" title="#{bundle.EditVentaTitle_tipoVenta}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_tipoVenta}"/>
+            <p:outputLabel value="#{bundle.CreateVentaLabel_tipoVenta}" for="tipoVenta" />
+            <p:selectOneMenu id="tipoVenta" value="#{ventaController.selected.tipoVenta}" style="width:125px">
+              <f:selectItem itemLabel="Selecciona uno" itemValue="" />
+              <f:selectItem itemLabel="Local" itemValue="Local" />
+              <f:selectItem itemLabel="Exportación" itemValue="Exportación" />
+            </p:selectOneMenu>  
             <p:outputLabel value="#{bundle.EditVentaLabel_precio}" for="precio" />
             <p:inputText id="precio" value="#{ventaController.selected.precio}" title="#{bundle.EditVentaTitle_precio}" required="true" requiredMessage="#{bundle.EditVentaRequiredMessage_precio}"/>
             <p:outputLabel value="#{bundle.EditVentaLabel_centro}" for="centro" />

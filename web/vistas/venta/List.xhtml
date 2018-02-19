@@ -70,12 +70,11 @@
                 <h:outputText value="#{bundle.ListVentaTitle_cantidad}"/>
               </f:facet>
               <h:outputText value="#{item.cantidad}"/>
-            </p:column>
+            </p:column>            
             <p:column filterBy="#{item.tipoVenta}" filterStyle="width:80px" sortBy="#{item.tipoVenta}">
               <f:facet name="header">
                 <h:outputText value="#{bundle.ListVentaTitle_tipoVenta}"/>
               </f:facet>
-              <h:outputText value="#{item.tipoVenta}"/>
             </p:column>
             <p:column filterBy="#{item.precio}" filterStyle="width:80px" sortBy="#{item.precio}">
               <f:facet name="header">

@@ -21,7 +21,11 @@
             <p:outputLabel value="#{bundle.CreateVentaLabel_cantidad}" for="cantidad" />
             <p:inputText id="cantidad" value="#{ventaController.selected.cantidad}" title="#{bundle.CreateVentaTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateVentaRequiredMessage_cantidad}"/>
             <p:outputLabel value="#{bundle.CreateVentaLabel_tipoVenta}" for="tipoVenta" />
-            <p:inputText id="tipoVenta" value="#{ventaController.selected.tipoVenta}" title="#{bundle.CreateVentaTitle_tipoVenta}" required="true" requiredMessage="#{bundle.CreateVentaRequiredMessage_tipoVenta}"/>
+            <p:selectOneMenu id="tipoVenta" value="#{ventaController.selected.tipoVenta}" style="width:125px">
+              <f:selectItem itemLabel="Selecciona uno" itemValue="" />
+              <f:selectItem itemLabel="Local" itemValue="Local" />
+              <f:selectItem itemLabel="Exportación" itemValue="Exportación" />
+            </p:selectOneMenu>             
             <p:outputLabel value="#{bundle.CreateVentaLabel_precio}" for="precio" />
             <p:inputText id="precio" value="#{ventaController.selected.precio}" title="#{bundle.CreateVentaTitle_precio}" required="true" requiredMessage="#{bundle.CreateVentaRequiredMessage_precio}"/>
             <p:outputLabel value="#{bundle.CreateVentaLabel_centro}" for="centro" />
