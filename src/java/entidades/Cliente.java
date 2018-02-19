@@ -159,7 +159,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Cliente[ nit=" + nit + " ]";
+        return nombreEmpresa;
     }
     
 }

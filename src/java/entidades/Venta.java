@@ -218,7 +218,7 @@ public class Venta implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Venta[ factura=" + factura + " ]";
+        return factura;
     }
     
 }

@@ -122,7 +122,7 @@ public class EstatusFacturaPagos implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.EstatusFacturaPagos[ idEstatusFacturaPagos=" + idEstatusFacturaPagos + " ]";
+        return noEnvio;
     }
     
 }

@@ -113,7 +113,7 @@ public class Banco implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Banco[ noCuenta=" + noCuenta + " ]";
+        return noCuenta;
     }
     
 }

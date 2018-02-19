@@ -167,7 +167,7 @@ public class MovimientoBanco implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.MovimientoBanco[ idMovimientoBanco=" + idMovimientoBanco + " ]";
+        return noDocumento;
     }
     
 }

@@ -109,7 +109,7 @@ public class Centro implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Centro[ idCentro=" + idCentro + " ]";
+        return descripcion;
     }
     
 }

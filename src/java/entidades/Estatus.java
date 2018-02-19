@@ -109,7 +109,7 @@ public class Estatus implements Serializable {
 
     @Override
     public String toString() {
-        return "entidades.Estatus[ idEstatus=" + idEstatus + " ]";
+        return descripcion;
     }
     
 }
