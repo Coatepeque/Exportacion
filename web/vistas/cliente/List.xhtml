@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition template="/template.xhtml">
+
+
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ListClienteTitle}"></h:outputText>
+    </ui:define>
+
+    <ui:define name="body">
+      <h:form id="ClienteListForm">
+
+        <p:toolbar>
+          <p:toolbarGroup align="right">
+            <h:commandLink>
+              <p:graphicImage url="/multimedia/imagenes/excel2.png" width="24"/>
+              <p:dataExporter type="xlsx" target="datalist" fileName="cars" pageOnly="true" />
+            </h:commandLink>
+            <p:separator />
+            <h:commandLink>
+              <p:graphicImage url="/multimedia/imagenes/pdf.svg" width="24"/>
+              <p:dataExporter type="pdf" target="datalist" fileName="cars"/>
+            </h:commandLink>
+            <p:separator />
+            <p:commandButton id="toggler" type="button" value="Columnas" style="float:right" icon="ui-icon-calculator" />
+            <p:columnToggler datasource="datalist" trigger="toggler" />
+          </p:toolbarGroup>
+        </p:toolbar>
+
+        <p:panel header="#{bundle.ListClienteTitle}">
+          <p:dataTable id="datalist" value="#{clienteController.items}" var="item"
+                       selectionMode="single" selection="#{clienteController.selected}"
+                       paginator="true"
+                       rowKey="#{item.nit}"
+                       rows="10"
+                       rowsPerPageTemplate="10,20,30,40,50"
+                       >
+
+            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+            <p:column filterBy="#{item.nit}" filterStyle="width:80px" sortBy="#{item.nit}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_nit}"/>
+              </f:facet>
+              <h:outputText value="#{item.nit}"/>
+            </p:column>
+            <p:column filterBy="#{item.nombreEmpresa}" filterStyle="width:80px" sortBy="#{item.nombreEmpresa}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_nombreEmpresa}"/>
+              </f:facet>
+              <h:outputText value="#{item.nombreEmpresa}"/>
+            </p:column>
+            <p:column filterBy="#{item.direccion}" filterStyle="width:80px" sortBy="#{item.direccion}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_direccion}"/>
+              </f:facet>
+              <h:outputText value="#{item.direccion}"/>
+            </p:column>
+            <p:column filterBy="#{item.telefono}" filterStyle="width:80px" sortBy="#{item.telefono}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_telefono}"/>
+              </f:facet>
+              <h:outputText value="#{item.telefono}"/>
+            </p:column>
+            <p:column filterBy="#{item.correo}" filterStyle="width:80px" sortBy="#{item.correo}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_correo}"/>
+              </f:facet>
+              <h:outputText value="#{item.correo}"/>
+            </p:column>
+            <p:column filterBy="#{item.codigoPostal}" filterStyle="width:80px" sortBy="#{item.codigoPostal}">
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListClienteTitle_codigoPostal}"/>
+              </f:facet>
+              <h:outputText value="#{item.codigoPostal}"/>
+            </p:column>
+            <f:facet name="footer">
+              <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{clienteController.prepareCreate}" update=":ClienteCreateForm" oncomplete="PF('ClienteCreateDialog').show()"/>
+              <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ClienteViewForm" oncomplete="PF('ClienteViewDialog').show()" disabled="#{empty clienteController.selected}"/>
+              <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ClienteEditForm" oncomplete="PF('ClienteEditDialog').show()" disabled="#{empty clienteController.selected}"/>
+              <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{clienteController.destroy}" update=":growl,datalist" disabled="#{empty clienteController.selected}"/>
+            </f:facet>
+          </p:dataTable>
+        </p:panel>
+      </h:form>
+
+      <ui:include src="Create.xhtml"/>
+      <ui:include src="Edit.xhtml"/>
+      <ui:include src="View.xhtml"/>
+    </ui:define>
+  </ui:composition>
+
+</html>

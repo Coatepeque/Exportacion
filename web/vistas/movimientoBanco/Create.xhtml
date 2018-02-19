@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="MovimientoBancoCreateDlg" widgetVar="MovimientoBancoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMovimientoBancoTitle}">
+      <h:form id="MovimientoBancoCreateForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{movimientoBancoController.selected != null}">
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_idMovimientoBanco}" for="idMovimientoBanco" />
+            <p:inputText id="idMovimientoBanco" value="#{movimientoBancoController.selected.idMovimientoBanco}" title="#{bundle.CreateMovimientoBancoTitle_idMovimientoBanco}" required="true" requiredMessage="#{bundle.CreateMovimientoBancoRequiredMessage_idMovimientoBanco}"/>
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_fecha}" for="fecha" />
+            <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{movimientoBancoController.selected.fecha}" title="#{bundle.EditMovimientoBancoTitle_fecha}" required="true" requiredMessage="#{bundle.EditMovimientoBancoRequiredMessage_fecha}" showOn="button"/>
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_noDocumento}" for="noDocumento" />
+            <p:inputText id="noDocumento" value="#{movimientoBancoController.selected.noDocumento}" title="#{bundle.CreateMovimientoBancoTitle_noDocumento}" required="true" requiredMessage="#{bundle.CreateMovimientoBancoRequiredMessage_noDocumento}"/>
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_cantidad}" for="cantidad" />
+            <p:inputText id="cantidad" value="#{movimientoBancoController.selected.cantidad}" title="#{bundle.CreateMovimientoBancoTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateMovimientoBancoRequiredMessage_cantidad}"/>
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_tipoMovimineto}" for="tipoMovimineto" />
+            <p:inputText id="tipoMovimineto" value="#{movimientoBancoController.selected.tipoMovimineto}" title="#{bundle.CreateMovimientoBancoTitle_tipoMovimineto}" required="true" requiredMessage="#{bundle.CreateMovimientoBancoRequiredMessage_tipoMovimineto}"/>
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_observacion}" for="observacion" />
+            <p:inputText id="observacion" value="#{movimientoBancoController.selected.observacion}" title="#{bundle.CreateMovimientoBancoTitle_observacion}" />
+            <p:outputLabel value="#{bundle.CreateMovimientoBancoLabel_cuenta}" for="cuenta" />
+            <p:selectOneMenu id="cuenta" value="#{movimientoBancoController.selected.cuenta}" required="true" requiredMessage="#{bundle.EditMovimientoBancoRequiredMessage_cuenta}">
+              <f:selectItems value="#{bancoController.itemsAvailableSelectOne}"
+                             var="cuentaItem"
+                             itemValue="#{cuentaItem}"/>
+            </p:selectOneMenu>
+          </p:panelGrid>
+          <p:commandButton actionListener="#{movimientoBancoController.create}" value="#{bundle.Save}" update="display,:MovimientoBancoListForm:datalist,:growl" oncomplete="handleSubmit(args,'MovimientoBancoCreateDialog');"/>
+          <p:commandButton value="#{bundle.Cancel}" onclick="MovimientoBancoCreateDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>

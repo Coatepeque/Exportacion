@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="MovimientoBancoViewDlg" widgetVar="MovimientoBancoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMovimientoBancoTitle}">
+      <h:form id="MovimientoBancoViewForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{movimientoBancoController.selected != null}">
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_idMovimientoBanco}"/>
+            <h:outputText value="#{movimientoBancoController.selected.idMovimientoBanco}" title="#{bundle.ViewMovimientoBancoTitle_idMovimientoBanco}"/>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_fecha}"/>
+            <h:outputText value="#{movimientoBancoController.selected.fecha}" title="#{bundle.ViewMovimientoBancoTitle_fecha}">
+              <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_noDocumento}"/>
+            <h:outputText value="#{movimientoBancoController.selected.noDocumento}" title="#{bundle.ViewMovimientoBancoTitle_noDocumento}"/>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_cantidad}"/>
+            <h:outputText value="#{movimientoBancoController.selected.cantidad}" title="#{bundle.ViewMovimientoBancoTitle_cantidad}"/>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_tipoMovimineto}"/>
+            <h:outputText value="#{movimientoBancoController.selected.tipoMovimineto}" title="#{bundle.ViewMovimientoBancoTitle_tipoMovimineto}"/>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_observacion}"/>
+            <h:outputText value="#{movimientoBancoController.selected.observacion}" title="#{bundle.ViewMovimientoBancoTitle_observacion}"/>
+            <h:outputText value="#{bundle.ViewMovimientoBancoLabel_cuenta}"/>
+            <h:outputText value="#{movimientoBancoController.selected.cuenta}" title="#{bundle.ViewMovimientoBancoTitle_cuenta}"/>
+          </p:panelGrid>
+          <p:commandButton value="#{bundle.Close}" onclick="MovimientoBancoViewDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>

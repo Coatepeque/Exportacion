@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="VentaViewDlg" widgetVar="VentaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVentaTitle}">
+      <h:form id="VentaViewForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{ventaController.selected != null}">
+            <h:outputText value="#{bundle.ViewVentaLabel_factura}"/>
+            <h:outputText value="#{ventaController.selected.factura}" title="#{bundle.ViewVentaTitle_factura}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_fecha}"/>
+            <h:outputText value="#{ventaController.selected.fecha}" title="#{bundle.ViewVentaTitle_fecha}">
+              <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+            </h:outputText>
+            <h:outputText value="#{bundle.ViewVentaLabel_noEnvio}"/>
+            <h:outputText value="#{ventaController.selected.noEnvio}" title="#{bundle.ViewVentaTitle_noEnvio}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_cantidad}"/>
+            <h:outputText value="#{ventaController.selected.cantidad}" title="#{bundle.ViewVentaTitle_cantidad}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_tipoVenta}"/>
+            <h:outputText value="#{ventaController.selected.tipoVenta}" title="#{bundle.ViewVentaTitle_tipoVenta}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_precio}"/>
+            <h:outputText value="#{ventaController.selected.precio}" title="#{bundle.ViewVentaTitle_precio}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_centro}"/>
+            <h:outputText value="#{ventaController.selected.centro}" title="#{bundle.ViewVentaTitle_centro}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_nit}"/>
+            <h:outputText value="#{ventaController.selected.nit}" title="#{bundle.ViewVentaTitle_nit}"/>
+            <h:outputText value="#{bundle.ViewVentaLabel_producto}"/>
+            <h:outputText value="#{ventaController.selected.producto}" title="#{bundle.ViewVentaTitle_producto}"/>
+          </p:panelGrid>
+          <p:commandButton value="#{bundle.Close}" onclick="VentaViewDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="EstatusFacturaPagosEditDlg" widgetVar="EstatusFacturaPagosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditEstatusFacturaPagosTitle}">
+      <h:form id="EstatusFacturaPagosEditForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{estatusFacturaPagosController.selected != null}">
+            <p:outputLabel value="#{bundle.EditEstatusFacturaPagosLabel_idEstatusFacturaPagos}" for="idEstatusFacturaPagos" />
+            <p:inputText id="idEstatusFacturaPagos" value="#{estatusFacturaPagosController.selected.idEstatusFacturaPagos}" title="#{bundle.EditEstatusFacturaPagosTitle_idEstatusFacturaPagos}" required="true" requiredMessage="#{bundle.EditEstatusFacturaPagosRequiredMessage_idEstatusFacturaPagos}"/>
+            <p:outputLabel value="#{bundle.EditEstatusFacturaPagosLabel_noEnvio}" for="noEnvio" />
+            <p:inputText id="noEnvio" value="#{estatusFacturaPagosController.selected.noEnvio}" title="#{bundle.EditEstatusFacturaPagosTitle_noEnvio}" required="true" requiredMessage="#{bundle.EditEstatusFacturaPagosRequiredMessage_noEnvio}"/>
+            <p:outputLabel value="#{bundle.EditEstatusFacturaPagosLabel_fechaPago}" for="fechaPago" />
+            <p:calendar id="fechaPago" pattern="MM/dd/yyyy" value="#{estatusFacturaPagosController.selected.fechaPago}" title="#{bundle.EditEstatusFacturaPagosTitle_fechaPago}"  showOn="button"/>
+            <p:outputLabel value="#{bundle.EditEstatusFacturaPagosLabel_factura}" for="factura" />
+            <p:selectOneMenu id="factura" value="#{estatusFacturaPagosController.selected.factura}" required="true" requiredMessage="#{bundle.EditEstatusFacturaPagosRequiredMessage_factura}">
+              <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+              <f:selectItems value="#{ventaController.itemsAvailableSelectOne}"
+                             var="facturaItem"
+                             itemValue="#{facturaItem}"/>
+            </p:selectOneMenu>
+          </p:panelGrid>
+          <p:commandButton actionListener="#{estatusFacturaPagosController.update}" value="#{bundle.Save}" update="display,:EstatusFacturaPagosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'EstatusFacturaPagosEditDialog');"/>
+          <p:commandButton value="#{bundle.Cancel}" onclick="EstatusFacturaPagosEditDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="HistorialFacturasCreateDlg" widgetVar="HistorialFacturasCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateHistorialFacturasTitle}">
+      <h:form id="HistorialFacturasCreateForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{historialFacturasController.selected != null}">
+            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_idHistorialFacturas}" for="idHistorialFacturas" />
+            <p:inputText id="idHistorialFacturas" value="#{historialFacturasController.selected.idHistorialFacturas}" title="#{bundle.CreateHistorialFacturasTitle_idHistorialFacturas}" required="true" requiredMessage="#{bundle.CreateHistorialFacturasRequiredMessage_idHistorialFacturas}"/>
+            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_fecha}" for="fecha" />
+            <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{historialFacturasController.selected.fecha}" title="#{bundle.EditHistorialFacturasTitle_fecha}" required="true" requiredMessage="#{bundle.EditHistorialFacturasRequiredMessage_fecha}" showOn="button"/>
+            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_observacion}" for="observacion" />
+            <p:inputText id="observacion" value="#{historialFacturasController.selected.observacion}" title="#{bundle.CreateHistorialFacturasTitle_observacion}" />
+            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_estatus}" for="estatus" />
+            <p:selectOneMenu id="estatus" value="#{historialFacturasController.selected.estatus}" required="true" requiredMessage="#{bundle.EditHistorialFacturasRequiredMessage_estatus}">
+              <f:selectItems value="#{estatusController.itemsAvailableSelectOne}"
+                             var="estatusItem"
+                             itemValue="#{estatusItem}"/>
+            </p:selectOneMenu>
+            <p:outputLabel value="#{bundle.CreateHistorialFacturasLabel_factura}" for="factura" />
+            <p:selectOneMenu id="factura" value="#{historialFacturasController.selected.factura}" required="true" requiredMessage="#{bundle.EditHistorialFacturasRequiredMessage_factura}">
+              <f:selectItems value="#{ventaController.itemsAvailableSelectOne}"
+                             var="facturaItem"
+                             itemValue="#{facturaItem}"/>
+            </p:selectOneMenu>
+          </p:panelGrid>
+          <p:commandButton actionListener="#{historialFacturasController.create}" value="#{bundle.Save}" update="display,:HistorialFacturasListForm:datalist,:growl" oncomplete="handleSubmit(args,'HistorialFacturasCreateDialog');"/>
+          <p:commandButton value="#{bundle.Cancel}" onclick="HistorialFacturasCreateDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>

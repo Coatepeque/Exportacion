@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+  <ui:composition>
+
+    <p:dialog id="BancoEditDlg" widgetVar="BancoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditBancoTitle}">
+      <h:form id="BancoEditForm">
+        <h:panelGroup id="display">
+          <p:panelGrid columns="2" rendered="#{bancoController.selected != null}">
+            <p:outputLabel value="#{bundle.EditBancoLabel_noCuenta}" for="noCuenta" />
+            <p:inputText id="noCuenta" value="#{bancoController.selected.noCuenta}" title="#{bundle.EditBancoTitle_noCuenta}" required="true" requiredMessage="#{bundle.EditBancoRequiredMessage_noCuenta}"/>
+            <p:outputLabel value="#{bundle.EditBancoLabel_banco}" for="banco" />
+            <p:inputText id="banco" value="#{bancoController.selected.banco}" title="#{bundle.EditBancoTitle_banco}" />
+            <p:outputLabel value="#{bundle.EditBancoLabel_tipoCuenta}" for="tipoCuenta" />
+            <p:inputText id="tipoCuenta" value="#{bancoController.selected.tipoCuenta}" title="#{bundle.EditBancoTitle_tipoCuenta}" />
+          </p:panelGrid>
+          <p:commandButton actionListener="#{bancoController.update}" value="#{bundle.Save}" update="display,:BancoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'BancoEditDialog');"/>
+          <p:commandButton value="#{bundle.Cancel}" onclick="BancoEditDialog.hide()"/>
+        </h:panelGroup>
+      </h:form>
+    </p:dialog>
+
+  </ui:composition>
+</html>
